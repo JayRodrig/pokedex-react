@@ -4,6 +4,7 @@ import Axios from 'axios';
 import List from './components/list';
 import Pokemon from './services/initial-poke';
 import PokemonList from './services/poke-list';
+import ProfilePage from './components/profile-container';
 
 class App extends Component {
   constructor(props) {
@@ -32,7 +33,7 @@ class App extends Component {
     return (
       <>
         <Header /> {/* Header component -> ./components/header.js */}
-        <List pokemon={this.state.pokemon}/> {/* List component -> ./components/list.js */}
+        <ProfilePage />
       </>
     );
   }

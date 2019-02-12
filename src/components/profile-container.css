@@ -1,0 +1,35 @@
+.pkmn-name-div {
+    text-align: end;
+}
+
+.pkmn-img {
+    width: 300px;
+    height: 300px;
+}
+
+.margin-side {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.padding-top-sprites {
+    padding-top: 9%;
+}
+
+.pkmn-sprites {
+    width: 125px;
+    height:125px;
+}
+
+.title-default {
+    padding-left: 150px;
+}
+
+.type-div {
+    text-align:center;
+}
+
+.type {
+    height: 50px;
+    width: 50px;
+}
