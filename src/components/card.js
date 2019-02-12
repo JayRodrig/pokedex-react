@@ -7,6 +7,9 @@ const Card = props => {
     return props.pokemon.map((pokemon, index) => {          /* we are returning a new arr using the map method on the pokemon arr */
         return (    
             <div className="card poke-card" key={index}> {/* div tag for new card container per pokemon existing on the pokemon arr */}
+                <div>
+                    <img src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png' alt='pokemon'/>
+                </div>
                 <div className="card-body">  {/* div tag for name of pokemon per pokemon existing on the pokemon arr */}
                     {pokemon.name}  {/* this is where we actually take the pokemon name off the pokemon arr and insert it to our html */}
                 </div> {/* closing tag for div tag w pokemon name */}
