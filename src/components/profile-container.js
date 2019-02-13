@@ -47,21 +47,20 @@ class ProfilePage extends React.Component {
         return(
             <>
                 <ProfileHeader name={this.state.pkmnName} />
-                <br></br>
                 <PkmnCreds pkmnID={this.state.pkmnID} pkmnName={this.state.pkmnName} />
                 <br></br>
                 <br></br>
                 <div className='row margin-side'>
                     <PkmnAvatar pkmnID={this.state.pkmnID} />
-                    <div className='col col-8 border'>
+                    <div className='col col-8'>
                         <PkmnSprites sprites={this.state.pkmnSprites} />
                         <div className='title-default'>
                             Default
                         </div>
                     </div>
                 </div>
-                <div className='row border type-row'>
-                    <div className='col col-4 border margin-side'>
+                <div className='row type-row'>
+                    <div className='col col-4 margin-side'>
                         <PkmnType type={this.state.pkmnType}/>
                     </div>
                 </div>

@@ -2,9 +2,9 @@ import React from 'react';
 
 const ProfileHeader = props => {
     return(
-        <div className='row margin-side border'>
+        <div className='row margin-side profile-header'>
             <div className='col col-3'>
-                Home >> {props.name}
+                Home >> <span className='pkmnName-header'>{props.name}</span>
             </div>
         </div>
     )
