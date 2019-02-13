@@ -53,7 +53,6 @@ class ProfilePage extends React.Component {
                 <br></br>
                 <div className='row margin-side'>
                     <PkmnAvatar pkmnID={this.state.pkmnID} />
-                    
                     <div className='col col-8 border'>
                         <PkmnSprites sprites={this.state.pkmnSprites} />
                         <div className='title-default'>
@@ -61,7 +60,6 @@ class ProfilePage extends React.Component {
                         </div>
                     </div>
                 </div>
-
                 <div className='row border type-row'>
                     <div className='col col-4 border margin-side'>
                         <PkmnType type={this.state.pkmnType}/>
@@ -69,9 +67,7 @@ class ProfilePage extends React.Component {
                 </div>
                 <br></br>
                 <br></br>
-                
                 <h3 className='margin-side'>Base Stats</h3>
-
                 <div className='row margin-side border'>
                     <div className='col col-12 border'>
                         <PkmnStats stats={this.state.pkmnStats} />
@@ -79,9 +75,7 @@ class ProfilePage extends React.Component {
                 </div>
                 <br></br>
                 <br></br>
-
                 <h3>Moves</h3>
-
                 <div className='row margin-side border'>
                     <div className='col col-12 border'>
                         <PkmnMoves moves={this.state.pkmnMoves} />
