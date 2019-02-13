@@ -17,11 +17,6 @@
     margin-right:15px;
 }
 
-.pkmn-sprites {
-    width: 125px;
-    height:125px;
-}
-
 .type-div {
     text-align:center;
 }
@@ -31,7 +26,7 @@
 }
 
 .margin-left {
-    margin-left: 14%;
+    margin-left: 6%;
 }
 
 .title-default {

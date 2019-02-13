@@ -4,6 +4,10 @@ import './profile-container.css'
 import PkmnType from './pkmn-type';
 import PkmnStats from './pkmn-stats';
 import PkmnMoves from './pkmn-moves';
+import PkmnSprites from './pkmn-sprites';
+import ProfileHeader from './profile-header';
+import PkmnCreds from './pkmn-creds';
+import PkmnAvatar from './pkmn-avatar';
 
 class ProfilePage extends React.Component {
     constructor(props) {
@@ -42,28 +46,16 @@ class ProfilePage extends React.Component {
     render() {
         return(
             <>
-                <div className='row margin-side border'>
-                    <div className='col col-3'>
-                        Home >> {this.state.pkmnName}
-                    </div>
-                </div>
+                <ProfileHeader name={this.state.pkmnName} />
                 <br></br>
-                <div className='row margin-side border'>
-                    <div className='col col-12 pkmn-name-div'>
-                        #{this.state.pkmnID} - {this.state.pkmnName}
-                    </div>
-                </div>
+                <PkmnCreds pkmnID={this.state.pkmnID} pkmnName={this.state.pkmnName} />
                 <br></br>
                 <br></br>
                 <div className='row margin-side'>
-                    <div className='col col-4 border'>
-                        <div className='col col-4'>
-                            <img className='pkmn-img border' src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${this.state.pkmnID}.png`} alt='pokemon' />
-                        </div>
-                    </div>
+                    <PkmnAvatar pkmnID={this.state.pkmnID} />
                     
                     <div className='col col-8 border'>
-                        {/* pkmn sprites */}
+                        <PkmnSprites sprites={this.state.pkmnSprites} />
                         <div className='title-default'>
                             Default
                         </div>
