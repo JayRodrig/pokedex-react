@@ -8,12 +8,13 @@
 }
 
 .margin-side {
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 15px;
+    margin-left: 15px;
 }
 
-.padding-top-sprites {
+.sprite-div {
     padding-top: 9%;
+    margin-right:15px;
 }
 
 .pkmn-sprites {
@@ -21,15 +22,32 @@
     height:125px;
 }
 
-.title-default {
-    padding-left: 150px;
-}
-
 .type-div {
     text-align:center;
 }
 
-.type {
-    height: 50px;
-    width: 50px;
+.inline {
+    display:inline-block;
+}
+
+.margin-left {
+    margin-left: 14%;
+}
+
+.title-default {
+    margin-left: 47%;
+    padding-top: 2%;
+}
+
+.type-row {
+    margin-top: 0.5%;
+}
+
+.type-left {
+    margin-left: 15%;
+    margin-right: 2%;
+}
+
+.title-base-stats {
+    margin-left: 5%;
 }

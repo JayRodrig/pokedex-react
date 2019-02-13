@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Header from './components/header'
-import Axios from 'axios';
-import List from './components/list';
+// import Axios from 'axios';
+// import List from './components/list';
 import Pokemon from './services/initial-poke';
-import PokemonList from './services/poke-list';
+// import PokemonList from './services/poke-list';
 import ProfilePage from './components/profile-container';
 
 class App extends Component {
@@ -16,17 +16,17 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log('initial state was loaded');
-    console.log('this is the state... ', this.state);
-    for (let i = 0; i < 20; i++){ 
-      Axios.get(`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png`)
-        .then(response => {
-          console.log(response);
-        })
-        .catch(e => {
-          console.log(e);
-        })
-    }
+    // console.log('initial state was loaded');
+    // console.log('this is the state... ', this.state);
+    // for (let i = 0; i < 20; i++){ 
+    //   Axios.get(`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png`)
+    //     .then(response => {
+    //       console.log(response);
+    //     })
+    //     .catch(e => {
+    //       console.log(e);
+    //     })
+    // }
   }
 
   render() {
