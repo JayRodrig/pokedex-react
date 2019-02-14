@@ -30,7 +30,10 @@ class ProfilePage extends React.Component {
         }
     }
 
-    componentDidMount() {       {/* here's where we make our initial API call to get most of the profile info for the pkmn */}
+    /* 
+        here's where we make our initial API call to get most of the profile info for the pkmn 
+    */
+    componentDidMount() {      
         Axios.get(`https://pokeapi.co/api/v2/pokemon/lapras`) 
             .then(response => {
                 return response.data;
@@ -48,13 +51,19 @@ class ProfilePage extends React.Component {
             .catch(err => console.log(err));
     }
 
-    toggle = () => {        {/* event handling methods, this one switches from true to false and viceversa to show/hide modal */}
+    /* 
+        event handling methods, this one switches from true to false and viceversa to show/hide modal 
+    */
+    toggle = () => {     
         this.setState({
             activeModal: !this.state.activeModal,
         })
     }
 
-    moveInfo = moveName => {    {/* event handling methods, this one gets the info of the pkmn move to put on the modal */}
+    /* 
+        event handling methods, this one gets the info of the pkmn move to put on the modal 
+    */
+    moveInfo = moveName => {    
         Axios.get(`https://pokeapi.co/api/v2/move/${moveName}/`)
             .then(response => {
                 const activeMove = {
@@ -76,8 +85,11 @@ class ProfilePage extends React.Component {
     render() {
         return(
             <>
-               {
-                   (this.state.activeModal) ? {/* Ternary Operator to render, when user clicks on a pkmn move shows modal if they don't, it doesn't*/}
+               {    /* 
+                        Ternary Operator to render, when user clicks on a pkmn move shows modal if they don't, it doesn't
+                    */
+                   
+                    (this.state.activeModal) ? 
                    <> 
                         <MoveModal toggle={this.toggle} activeModal={this.state.activeModal} activeMove={this.state.activeMove} /> 
                         <ProfileHeader name={this.state.pkmnName} />
