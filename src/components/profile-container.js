@@ -10,6 +10,10 @@ import PkmnCreds from './pkmn-creds';
 import PkmnAvatar from './pkmn-avatar';
 import MoveModal from './move-modal';
 
+/* 
+    Profile Page -> Stateful component, here's where all the profile components and data is gathered
+*/
+
 class ProfilePage extends React.Component {
     constructor(props) {
         super(props);
@@ -26,8 +30,8 @@ class ProfilePage extends React.Component {
         }
     }
 
-    componentDidMount() {
-        Axios.get(`https://pokeapi.co/api/v2/pokemon/lapras`)
+    componentDidMount() {       {/* here's where we make our initial API call to get most of the profile info for the pkmn */}
+        Axios.get(`https://pokeapi.co/api/v2/pokemon/lapras`) 
             .then(response => {
                 return response.data;
             })
@@ -44,13 +48,13 @@ class ProfilePage extends React.Component {
             .catch(err => console.log(err));
     }
 
-    toggle = () => {
+    toggle = () => {        {/* event handling methods, this one switches from true to false and viceversa to show/hide modal */}
         this.setState({
             activeModal: !this.state.activeModal,
         })
     }
 
-    moveInfo = moveName => {
+    moveInfo = moveName => {    {/* event handling methods, this one gets the info of the pkmn move to put on the modal */}
         Axios.get(`https://pokeapi.co/api/v2/move/${moveName}/`)
             .then(response => {
                 const activeMove = {
@@ -73,7 +77,7 @@ class ProfilePage extends React.Component {
         return(
             <>
                {
-                   (this.state.activeModal) ? 
+                   (this.state.activeModal) ? {/* Ternary Operator to render, when user clicks on a pkmn move shows modal if they don't, it doesn't*/}
                    <> 
                         <MoveModal toggle={this.toggle} activeModal={this.state.activeModal} activeMove={this.state.activeMove} /> 
                         <ProfileHeader name={this.state.pkmnName} />
@@ -87,7 +91,7 @@ class ProfilePage extends React.Component {
                                 <div className='title-default'>
                                     Default
                                 </div>
-                            </div>
+                            </div>q
                         </div>
 
                             <div className='col col-4'>
