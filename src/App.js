@@ -33,7 +33,8 @@ class App extends Component {
     return (
       <>
         <Header /> {/* Header component -> ./components/header.js */}
-        <List pokemon={this.state.pokemon}/> {/* List component -> ./components/list.js */}
+        <List pokemon={this.state.pokemon}/> List component -> ./components/list.js
+        {/* <ProfilePage /> */}
       </>
     );
   }
