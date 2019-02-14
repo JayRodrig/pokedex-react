@@ -26,7 +26,7 @@
 }
 
 .margin-left {
-    margin-left: 6%;
+    margin-left: 4%;
 }
 
 .title-default {
@@ -168,3 +168,27 @@
 .water {
     background-color: #6890F0;
 }    
+
+.attack-stat {
+    padding-left:18%;
+}
+
+.defense-stat {
+    padding-left: 22%;
+}
+
+.spattack-stat {
+    padding-left: 28%;
+}
+
+.spdefense-stat {
+    padding-left: 33%;
+}
+
+.speed-stat {
+    padding-left: 18%;
+}
+
+.hp-stat {
+    padding-left: 13%;
+}

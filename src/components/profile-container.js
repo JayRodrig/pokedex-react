@@ -8,6 +8,8 @@ import PkmnSprites from './pkmn-sprites';
 import ProfileHeader from './profile-header';
 import PkmnCreds from './pkmn-creds';
 import PkmnAvatar from './pkmn-avatar';
+import MoveModal from './move-modal';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 class ProfilePage extends React.Component {
     constructor(props) {
@@ -20,6 +22,8 @@ class ProfilePage extends React.Component {
             pkmnType: [],
             pkmnStats: [],
             pkmnMoves: [],
+            activeModal: false,
+            activeMove: {},
         }
     }
 
@@ -39,48 +43,115 @@ class ProfilePage extends React.Component {
                     pkmnStats: response.stats.map(e => ({name: e.stat.name, value: e.base_stat,})),
                     pkmnMoves: response.moves.map(e => e.move.name),
                 })
-                console.log(this.state);
             })
+            .catch(err => console.log(err));
+    }
+
+    toggle = () => {
+        this.setState({
+            activeModal: !this.state.activeModal,
+        })
+    }
+
+    moveInfo = moveName => {
+        Axios.get(`https://pokeapi.co/api/v2/move/${moveName}/`)
+            .then(response => {
+                const moveObj = {
+                    moveName: response.data.name,
+                    moveType: response.data.type.name,
+                    movePower: response.data.power,
+                    movePP: response.data.pp,
+                }
+                return moveObj;
+            })
+            .then(moveObj => {
+                this.setState({
+                    activeMove: moveObj,
+                });
+            })
+            .catch(err => console.log(err));
     }
 
     render() {
         return(
             <>
-                <ProfileHeader name={this.state.pkmnName} />
-                <PkmnCreds pkmnID={this.state.pkmnID} pkmnName={this.state.pkmnName} />
-                <br></br>
-                <br></br>
-                <div className='row margin-side'>
-                    <PkmnAvatar pkmnID={this.state.pkmnID} />
-                    <div className='col col-8'>
-                        <PkmnSprites sprites={this.state.pkmnSprites} />
-                        <div className='title-default'>
-                            Default
+               {
+                   (this.state.activeModal) ? 
+                   <> 
+                        <MoveModal toggle={this.toggle} activeModal={this.state.activeModal} /> 
+                        <ProfileHeader name={this.state.pkmnName} />
+                        <PkmnCreds pkmnID={this.state.pkmnID} pkmnName={this.state.pkmnName} />
+                        <br></br>
+                        <br></br>
+                        <div className='row margin-side'>
+                            <PkmnAvatar pkmnID={this.state.pkmnID} />
+                            <div className='col col-8'>
+                                <PkmnSprites sprites={this.state.pkmnSprites} />
+                                <div className='title-default'>
+                                    Default
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            
-                    <div className='col col-4 margin-side'>
-                        <PkmnType type={this.state.pkmnType}/>
-                    </div>
-            
-                <br></br>
-                <br></br>
-                <h3 className='margin-side title-base-stats'>Base Stats</h3>
-                <div className='row margin-side stats-border'>
-                    <div className='col col-12'>
-                        <PkmnStats stats={this.state.pkmnStats} />
-                    </div>
-                </div>
-                <br></br>
-                <br></br>
-                <h3 className='margin-side'>Moves</h3>
-                <div className='row margin-side'>
-                    <div className='col col-12'>
-                        <PkmnMoves moves={this.state.pkmnMoves} />
-                    </div>
-                </div>
 
+                            <div className='col col-4'>
+                                <PkmnType type={this.state.pkmnType}/>
+                            </div>
+
+                        <br></br>
+                        <br></br>
+                        <h3 className='margin-side title-base-stats'>Base Stats</h3>
+                        <div className='row margin-side stats-border'>
+                            <div className='col col-12'>
+                                <PkmnStats stats={this.state.pkmnStats} />
+                            </div>
+                        </div>
+                        <br></br>
+                        <br></br>
+                        <h3 className='margin-side'>Moves</h3>
+                        <div className='row margin-side'>
+                            <div className='col col-12'>
+                                <PkmnMoves moves={this.state.pkmnMoves} toggle={this.toggle} moveInfo={this.moveInfo}/>
+                            </div>
+                        </div>
+                    </>
+                   : 
+                   <> 
+                        <ProfileHeader name={this.state.pkmnName} />
+                        <PkmnCreds pkmnID={this.state.pkmnID} pkmnName={this.state.pkmnName} />
+                        <br></br>
+                        <br></br>
+                        <div className='row margin-side'>
+                            <PkmnAvatar pkmnID={this.state.pkmnID} />
+                            <div className='col col-8'>
+                                <PkmnSprites sprites={this.state.pkmnSprites} />
+                                <div className='title-default'>
+                                    Default
+                                </div>
+                            </div>
+                        </div>
+
+                            <div className='col col-4'>
+                                <PkmnType type={this.state.pkmnType}/>
+                            </div>
+
+                        <br></br>
+                        <br></br>
+                        <h3 className='margin-side title-base-stats'>Base Stats</h3>
+                        <div className='row margin-side stats-border'>
+                            <div className='col col-12'>
+                                <PkmnStats stats={this.state.pkmnStats} />
+                            </div>
+                        </div>
+                        <br></br>
+                        <br></br>
+                        <h3 className='margin-side'>Moves</h3>
+                        <div className='row margin-side'>
+                            <div className='col col-12'>
+                                <PkmnMoves moves={this.state.pkmnMoves} toggle={this.toggle} moveInfo={this.moveInfo}/>
+                            </div>
+                        </div>
+                    </>
+               } 
             </>
         )
     }
