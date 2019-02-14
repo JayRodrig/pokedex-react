@@ -2,9 +2,6 @@ import React from 'react';
 
 const PkmnMoves = props => {
     const clickHandler = e => {
-        console.log('you got a move')
-        console.log(e.target.innerHTML.toLowerCase());
-        console.log(props);
         props.toggle();
         props.moveInfo(e.target.innerHTML.toLowerCase());
     }

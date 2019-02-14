@@ -27,13 +27,11 @@ class ProfilePage extends React.Component {
     }
 
     componentDidMount() {
-        console.log('initial state has been loaded');
         Axios.get(`https://pokeapi.co/api/v2/pokemon/lapras`)
             .then(response => {
                 return response.data;
             })
             .then(response => {
-                console.log(response);
                 this.setState({
                     pkmnName: `${response.name[0].toUpperCase()}${response.name.slice(1).toLowerCase()}`,
                     pkmnID: (response.id < 10) ? `00${response.id}` : (response.id.toString().length === 2 ? `0${response.id}` : response.id),

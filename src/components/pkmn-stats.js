@@ -1,7 +1,6 @@
 import React from 'react';
 
 const PkmnStats = props => {
-    console.log(props)
     return(
         <>
             <div className='col col-2 inline stat-container'>

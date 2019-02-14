@@ -2,7 +2,6 @@ import React from 'react';
 import {Modal, ModalHeader, ModalBody,} from 'reactstrap';
 
 const MoveModal = props => {
-    console.log(props)
     const clickHandler = () => {
         props.toggle();
     }
