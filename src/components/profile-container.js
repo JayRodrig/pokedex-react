@@ -25,7 +25,7 @@ class ProfilePage extends React.Component {
 
     componentDidMount() {
         console.log('initial state has been loaded');
-        Axios.get(`https://pokeapi.co/api/v2/pokemon/pidgeot`)
+        Axios.get(`https://pokeapi.co/api/v2/pokemon/lapras`)
             .then(response => {
                 return response.data;
             })
@@ -37,7 +37,7 @@ class ProfilePage extends React.Component {
                     pkmnSprites: [response.sprites.front_default, response.sprites.front_shiny, response.sprites.back_default, response.sprites.back_shiny],
                     pkmnType: response.types.map(e => e.type.name),
                     pkmnStats: response.stats.map(e => ({name: e.stat.name, value: e.base_stat,})),
-                    pkmnMoves: [response.moves[0].move.name, response.moves[1].move.name, response.moves[2].move.name],
+                    pkmnMoves: response.moves.map(e => e.move.name),
                 })
                 console.log(this.state);
             })
@@ -59,24 +59,24 @@ class ProfilePage extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className='row type-row'>
+            
                     <div className='col col-4 margin-side'>
                         <PkmnType type={this.state.pkmnType}/>
                     </div>
-                </div>
+            
                 <br></br>
                 <br></br>
-                <h3 className='margin-side'>Base Stats</h3>
-                <div className='row margin-side border'>
-                    <div className='col col-12 border'>
+                <h3 className='margin-side title-base-stats'>Base Stats</h3>
+                <div className='row margin-side stats-border'>
+                    <div className='col col-12'>
                         <PkmnStats stats={this.state.pkmnStats} />
                     </div>
                 </div>
                 <br></br>
                 <br></br>
-                <h3>Moves</h3>
-                <div className='row margin-side border'>
-                    <div className='col col-12 border'>
+                <h3 className='margin-side'>Moves</h3>
+                <div className='row margin-side'>
+                    <div className='col col-12'>
                         <PkmnMoves moves={this.state.pkmnMoves} />
                     </div>
                 </div>
