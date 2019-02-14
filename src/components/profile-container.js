@@ -9,7 +9,6 @@ import ProfileHeader from './profile-header';
 import PkmnCreds from './pkmn-creds';
 import PkmnAvatar from './pkmn-avatar';
 import MoveModal from './move-modal';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 class ProfilePage extends React.Component {
     constructor(props) {

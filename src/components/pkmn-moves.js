@@ -1,6 +1,4 @@
 import React from 'react';
-import Axios from 'axios';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 const PkmnMoves = props => {
     const clickHandler = e => {
