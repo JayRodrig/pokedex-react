@@ -1,0 +1,210 @@
+.pkmn-name-div {
+    text-align: end;
+}
+
+.pkmn-img {
+    width: 300px;
+    height: 300px;
+}
+
+.margin-side {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.sprite-div {
+    margin-top: 13%;
+    margin-right:15px;
+}
+
+.type-div {
+    text-align:center;
+}
+
+.inline {
+    display:inline-block;
+}
+
+.margin-left {
+    margin-left: 4%;
+}
+
+.title-default {
+    margin-left: 44%;
+    padding-top: 5%;
+    font-size: 18px;
+    letter-spacing: 5px;
+    font-weight: 800;
+    color: #BBBBBB;
+}
+
+.title-base-stats {
+    margin-bottom:1%;
+}
+
+.stats-border {
+    border-radius: 5px;
+    border: 1px solid #BBBBBB;
+}
+
+.profile-header {
+    color: #BBBBBB;
+    font-weight: 700;
+}
+
+.pkmnName-header {
+    color:#CA1A2A;
+}
+
+.pkmn-creds {
+    color: black;
+    font-weight: 800;
+    letter-spacing: 5px;
+    font-size: 20px;
+}
+
+.pkmn-type {
+    width: 40%;
+    margin-left: 1.5%;
+    border: none
+}
+
+.stat-name {
+    color: #BBBBBB;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 7%;
+}
+
+.stat-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.stat-value {
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 3px;
+}
+
+.button-moves {
+    margin-right: 0.5%;
+    margin-top: 0.5%;
+    background-color: white;
+    border-color: #BBBBBB;
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.bug {
+    background-color: #A8B820;
+}
+
+.dark {
+    background-color: #705848;
+}
+
+.dragon {
+    background-color: #7038F8;
+}
+
+.electric {
+    background-color: #F8D030;
+}
+
+.fairy {
+    background-color: #EE99AC;
+}
+
+.fighting {
+    background-color: #C03028;
+}
+
+.fire {
+    background-color: #F08030;
+}
+
+.flying {
+    background-color: #A890F0;
+}
+
+.ghost {
+    background-color: #705898;
+}
+
+.grass {
+    background-color: #78C850;
+}
+
+.ground {
+    background-color: #E0C068;
+}
+
+.ice {
+    background-color: #98D8D8;
+}
+
+.normal {
+    background-color: #A8A878;
+}
+
+.poison {
+    background-color: #A040A0;
+}
+
+.psychic {
+    background-color: #F85888;
+}
+
+.rock {
+    background-color: #B8A038
+}
+
+.steel {
+    background-color: #B8B8D0;
+}
+
+.water {
+    background-color: #6890F0;
+}    
+
+.attack-stat {
+    padding-left:18%;
+}
+
+.defense-stat {
+    padding-left: 22%;
+}
+
+.spattack-stat {
+    padding-left: 28%;
+}
+
+.spdefense-stat {
+    padding-left: 33%;
+}
+
+.speed-stat {
+    padding-left: 18%;
+}
+
+.hp-stat {
+    padding-left: 13%;
+}
+
+.modal-title {
+    border:none;
+}
+
+.modal-divs {
+    font-weight: 800;
+    letter-spacing: 5px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.modal-moveName {
+    font-size:36px;
+    margin-bottom: 2.5%;
+}
