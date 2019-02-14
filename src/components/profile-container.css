@@ -192,3 +192,19 @@
 .hp-stat {
     padding-left: 13%;
 }
+
+.modal-title {
+    border:none;
+}
+
+.modal-divs {
+    font-weight: 800;
+    letter-spacing: 5px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.modal-moveName {
+    font-size:36px;
+    margin-bottom: 2.5%;
+}

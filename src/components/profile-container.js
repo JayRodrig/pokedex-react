@@ -56,17 +56,17 @@ class ProfilePage extends React.Component {
     moveInfo = moveName => {
         Axios.get(`https://pokeapi.co/api/v2/move/${moveName}/`)
             .then(response => {
-                const moveObj = {
+                const activeMove = {
                     moveName: response.data.name,
                     moveType: response.data.type.name,
                     movePower: response.data.power,
                     movePP: response.data.pp,
                 }
-                return moveObj;
+                return activeMove;
             })
-            .then(moveObj => {
+            .then(activeMove => {
                 this.setState({
-                    activeMove: moveObj,
+                    activeMove: activeMove,
                 });
             })
             .catch(err => console.log(err));
@@ -78,7 +78,7 @@ class ProfilePage extends React.Component {
                {
                    (this.state.activeModal) ? 
                    <> 
-                        <MoveModal toggle={this.toggle} activeModal={this.state.activeModal} /> 
+                        <MoveModal toggle={this.toggle} activeModal={this.state.activeModal} activeMove={this.state.activeMove} /> 
                         <ProfileHeader name={this.state.pkmnName} />
                         <PkmnCreds pkmnID={this.state.pkmnID} pkmnName={this.state.pkmnName} />
                         <br></br>
