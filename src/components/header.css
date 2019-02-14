@@ -45,3 +45,11 @@
     width: 125px;
     height: 125px;
 }
+
+.inline {
+    display: inline-block;
+}
+
+.img-right {
+    float: right;
+}
