@@ -17,8 +17,9 @@ class App extends Component {
   componentDidMount() {
     console.log('initial state was loaded');
     console.log('this is the state... ', this.state);
-    for (let i = 0; i < 20; i++){ 
-      Axios.get(`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png`)
+    for (let i = 1; i < 6; i++){ 
+      // Axios.get(`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png`)
+      Axios.get(`https://pokeapi.co/api/v2/pokemon/${i}/`)
         .then(response => {
           console.log(response);
         })
