@@ -14,7 +14,7 @@ const Card = props => {
     } else {
         return props.pokemon.pokemon.pokemon.map((pokemon, index ) => {          /* we are returning a new arr using the map method on the pokemon arr */
             return (    
-                <div className="card poke-card" key={index} title={pokemon} onClick={clickHandler}> {/* div tag for new card container per pokemon existing on the pokemon arr */}
+                <div className="card poke-card col col-12" key={index} title={pokemon} onClick={clickHandler}> {/* div tag for new card container per pokemon existing on the pokemon arr */}
                     <div>
                         {/* <img className="poke-img" src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png' alt='pokemon'/> */}
                         <img className="poke-img" src={`https://img.pokemondb.net/sprites/sun-moon/icon/${pokemon}.png`} alt='pokemon'/>

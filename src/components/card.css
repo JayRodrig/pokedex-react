@@ -1,16 +1,12 @@
 .poke-card {
-    width: 100%;
-    margin-right: 150px;
     border-radius: 12px;
     border: 2px solid #C8C8C8;
-    margin-bottom: 10px;
+    margin-bottom: 1%;
     display: inline-block;
 }
 
 .card-body {
     float: left;
-    margin-top: 15px;
-    margin-left: 20px;
     color: #4B4CA5;
     letter-spacing: 5px;
     font-weight: 700;
@@ -18,15 +14,13 @@
 
 .poke-img {
     float: left;
-    margin-top: 30px;
-    margin-left: 20px;
+    margin-top:1.5%;
 }
 
 .poke-num {
     float: right;
-    margin-top: 30px;
-    margin-right: 20px;
     color: #4B4CA5;
     letter-spacing: 5px;
     font-weight: 700;
+    margin-top: 2%;
 }
