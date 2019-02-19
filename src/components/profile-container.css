@@ -1,3 +1,7 @@
+.header-link:hover {
+    cursor: pointer;
+}
+
 .pkmn-name-div {
     text-align: end;
 }

@@ -8,7 +8,7 @@ const ProfileHeader = props => {
     return(
         <div className='row margin-side profile-header'>
             <div className='col col-3'>
-                <span onClick={clickHandler}>Home</span> >> <span className='pkmnName-header'>{props.name}</span>
+                <span onClick={clickHandler} className='header-link'>Home</span> >> <span className='pkmnName-header'>{props.name}</span>
             </div>
         </div>
     )

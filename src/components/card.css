@@ -5,6 +5,10 @@
     display: inline-block;
 }
 
+.poke-card:hover {
+    cursor:pointer;
+}
+
 .card-body {
     float: left;
     color: #4B4CA5;
