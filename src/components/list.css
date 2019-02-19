@@ -1,9 +1,7 @@
-.list-container {
-    margin-left: 150px;
-    margin-right: 150px;
-    padding-left: 150px;
-}
-
 .list-container.hidden {
     display:none;
+}
+
+.list-container {
+    text-align:center;
 }
