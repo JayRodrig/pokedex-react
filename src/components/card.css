@@ -4,4 +4,26 @@
     border-radius: 12px;
     border: 2px solid #C8C8C8;
     margin-bottom: 10px;
+    display: inline-block;
+}
+
+.card-body {
+    float: left;
+    margin-top: 15px;
+    color: #4B4CA5;
+    letter-spacing: 5px;
+    font-weight: 700;
+}
+
+.poke-img {
+    float: left;
+}
+
+.poke-num {
+    float: right;
+    margin-top: 30px;
+    margin-right: 20px;
+    color: #4B4CA5;
+    letter-spacing: 5px;
+    font-weight: 700;
 }

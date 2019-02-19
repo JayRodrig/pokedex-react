@@ -808,4 +808,6 @@ const PokemonList = [
   	"Zeraora"
 ]
 
-export default PokemonList;
+
+
+export default {PokemonList};
