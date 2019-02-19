@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import Header from './components/header'
 import Axios from 'axios';
 import List from './components/list';
-import Pokemon from './services/initial-poke';
-import PokemonList from './services/poke-list';
 import ProfilePage from './components/profile-container';
 import LoadMore from './components/loadmore';
 
