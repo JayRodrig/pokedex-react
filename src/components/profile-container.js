@@ -27,14 +27,16 @@ class ProfilePage extends React.Component {
             pkmnMoves: [],
             activeModal: false,
             activeMove: {},
+            homepage: false,
         }
     }
 
     /* 
         here's where we make our initial API call to get most of the profile info for the pkmn 
     */
+
     componentDidMount() {      
-        Axios.get(`https://pokeapi.co/api/v2/pokemon/lapras`) 
+        Axios.get(`https://pokeapi.co/api/v2/pokemon/${this.props.pkmnName}`) 
             .then(response => {
                 return response.data;
             })
@@ -49,6 +51,12 @@ class ProfilePage extends React.Component {
                 })
             })
             .catch(err => console.log(err));
+    }
+
+    backToHome = () => {
+        this.setState({
+            homepage: !this.state.homepage,
+        });
     }
 
     /* 
@@ -88,11 +96,11 @@ class ProfilePage extends React.Component {
                {    /* 
                         Ternary Operator to render, when user clicks on a pkmn move shows modal if they don't, it doesn't
                     */
-                   
-                    (this.state.activeModal) ? 
+                    (this.state.homepage) ? <this.props.List pokemon={this.props.pokemon} viewToggle={this.props.viewToggle}/> 
+                    :  (this.state.activeModal) ? 
                    <> 
                         <MoveModal toggle={this.toggle} activeModal={this.state.activeModal} activeMove={this.state.activeMove} /> 
-                        <ProfileHeader name={this.state.pkmnName} />
+                        <ProfileHeader name={this.state.pkmnName} backToHome={this.backToHome} />
                         <PkmnCreds pkmnID={this.state.pkmnID} pkmnName={this.state.pkmnName} />
                         <br></br>
                         <br></br>
@@ -129,7 +137,7 @@ class ProfilePage extends React.Component {
                     </>
                    : 
                    <> 
-                        <ProfileHeader name={this.state.pkmnName} />
+                        <ProfileHeader name={this.state.pkmnName} backToHome={this.backToHome} />
                         <PkmnCreds pkmnID={this.state.pkmnID} pkmnName={this.state.pkmnName} />
                         <br></br>
                         <br></br>
@@ -163,6 +171,7 @@ class ProfilePage extends React.Component {
                                 <PkmnMoves moves={this.state.pkmnMoves} toggle={this.toggle} moveInfo={this.moveInfo}/>
                             </div>
                         </div>
+                        <br></br>
                     </>
                } 
             </>
