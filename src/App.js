@@ -11,16 +11,22 @@ class App extends Component {
     super(props);
     this.state = {
       pokemon: [],
-      sprites: [],
       id: [],
+      listView: true, 
+      profileView: false,
+      profileToDisplay: '',
     }
   }
 
+  viewToggle = pkmnName => {
+    this.setState({
+      listView: !this.state.listView,
+      profileView: !this.state.profileView,
+      profileToDisplay: pkmnName,
+    });
+  }
+
   componentDidMount() {
-    // console.log('initial state was loaded');
-    // console.log('this is the state... ', this.state);
-    // for (let i = 1; i < 21; i++){ 
-      // Axios.get(`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png`)
       Axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20`)
         .then(response => {
           console.log(response)
@@ -50,15 +56,15 @@ class App extends Component {
         .catch(e => {
           console.log(e);
         })
-      // console.log('the state is: ', this.state)
     }
 
   render() {
     return (
       <>
         <Header /> {/* Header component -> ./components/header.js */}
-        <List pokemon={this.state}/> {/* List component -> ./components/list.js */}
-        {/* <ProfilePage /> */} {/* ProfilePage component -> ./components/profile-container.js*/}
+        {this.state.listView && <List pokemon={this.state} viewToggle={this.viewToggle} />} {/* List component -> ./components/list.js */}
+        {this.state.profileView && <ProfilePage pkmnName={this.state.profileToDisplay} List={List} 
+          pokemon={this.state} viewToggle={this.viewToggle} />} {/* ProfilePage component -> ./components/profile-container.js*/}
       </>
     );
   }
