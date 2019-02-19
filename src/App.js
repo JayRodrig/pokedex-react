@@ -19,37 +19,29 @@ class App extends Component {
   componentDidMount() {
     // console.log('initial state was loaded');
     // console.log('this is the state... ', this.state);
-    let pokemonArr = [];
-    let spritesArr = [];
-    let idArr = [];
     // for (let i = 1; i < 21; i++){ 
       // Axios.get(`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png`)
       Axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20`)
         .then(response => {
           console.log(response)
           return response.data.results
-          // console.log(response);
-          // let pokeNames = response.data.name;
-          // let pokeSprites = response.data.sprites.front_default;
-          // let pokeId = response.data.id;
-          // pokemonArr.push(pokeNames)
-          // spritesArr.push(pokeSprites)
-          // idArr.push(pokeId)
-          // return {
-          //   pokeNames: pokemonArr, 
-          //   pokeSprites: spritesArr, 
-          //   pokeId: idArr,
-          // }
         })
         .then(pokeArr => {
           let pokeName = [];
           let pokeID = [];
           pokeArr.forEach((e, i) => {
             pokeName.push(e.name);
-            pokeID.push(i + 1);
+            let id = i + 1;
+            if (id < 10) {
+              return pokeID.push(`00${id}`)
+            }
+            if (id < 100) {
+              return pokeID.push(`0${id}`)
+            } 
+            return pokeID.push(id)
           })
-          console.log(pokeName)
-          console.log(pokeID)
+          // console.log(pokeName)
+          // console.log('pokeID is: ', pokeID)
           this.setState({
             pokemon: pokeName,
             id: pokeID,
@@ -58,10 +50,7 @@ class App extends Component {
         .catch(e => {
           console.log(e);
         })
-    // }
-      console.log('the state is: ', this.state)
-      console.log(pokemonArr)
-      // console.log(spritesArr)
+      // console.log('the state is: ', this.state)
     }
 
   render() {
