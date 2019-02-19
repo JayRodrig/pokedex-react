@@ -22,7 +22,6 @@
 }
 
 .input-field-container {
-    text-align: center;
     margin-top: 25px;
 }
 
@@ -52,4 +51,8 @@
 
 .img-right {
     float: right;
+}
+
+.center {
+    text-align: -webkit-center;
 }

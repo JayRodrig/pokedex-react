@@ -17,13 +17,13 @@ class App extends Component {
       profileView: false,
       profileToDisplay: '',
       loadMoreCount: 1,
+      searchQuery: [],
     }
   }
 
   componentDidMount() {
       Axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20`)
         .then(response => {
-          console.log(response)
           return response.data.results
         })
         .then(pokeArr => {
@@ -40,8 +40,6 @@ class App extends Component {
             } 
             return pokeID.push(id)
           })
-          // console.log(pokeName)
-          // console.log('pokeID is: ', pokeID)
           this.setState({
             pokemon: pokeName,
             id: pokeID,
@@ -91,10 +89,20 @@ class App extends Component {
         })
     }
 
+    searchHandler = queryResult => {
+      (queryResult.length > 0) ? 
+        this.setState({
+          searchQuery: queryResult,
+        }) :
+        this.setState({
+          searchQuery: [],
+        });
+    }
+
   render() {
     return (
       <>
-        <Header /> {/* Header component -> ./components/header.js */}
+        <Header searchHandler={this.searchHandler} searchQuery={this.state.searchQuery}/> {/* Header component -> ./components/header.js */}
         {this.state.listView && 
         <>
           <List pokemon={this.state} viewToggle={this.viewToggle} />
