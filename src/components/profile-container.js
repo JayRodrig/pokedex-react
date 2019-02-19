@@ -96,7 +96,11 @@ class ProfilePage extends React.Component {
                {    /* 
                         Ternary Operator to render, when user clicks on a pkmn move shows modal if they don't, it doesn't
                     */
-                    (this.state.homepage) ? <this.props.List pokemon={this.props.pokemon} viewToggle={this.props.viewToggle}/> 
+                    (this.state.homepage) ? 
+                    <>
+                        <this.props.List pokemon={this.props.pokemon} viewToggle={this.props.viewToggle}/> 
+                        <this.props.LoadMore loadMorePkmn={this.props.loadMorePkmn} />
+                    </>
                     :  (this.state.activeModal) ? 
                    <> 
                         <MoveModal toggle={this.toggle} activeModal={this.state.activeModal} activeMove={this.state.activeMove} /> 

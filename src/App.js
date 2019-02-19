@@ -5,6 +5,7 @@ import List from './components/list';
 import Pokemon from './services/initial-poke';
 import PokemonList from './services/poke-list';
 import ProfilePage from './components/profile-container';
+import LoadMore from './components/loadmore';
 
 class App extends Component {
   constructor(props) {
@@ -15,15 +16,8 @@ class App extends Component {
       listView: true, 
       profileView: false,
       profileToDisplay: '',
+      loadMoreCount: 1,
     }
-  }
-
-  viewToggle = pkmnName => {
-    this.setState({
-      listView: !this.state.listView,
-      profileView: !this.state.profileView,
-      profileToDisplay: pkmnName,
-    });
   }
 
   componentDidMount() {
@@ -58,13 +52,57 @@ class App extends Component {
         })
     }
 
+    viewToggle = pkmnName => {
+      this.setState({
+        listView: !this.state.listView,
+        profileView: !this.state.profileView,
+        profileToDisplay: pkmnName,
+      });
+    }
+    
+    loadMorePkmn = () => {
+      const pkmnToLoad = 20 * this.state.loadMoreCount + 1;
+      Axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=${pkmnToLoad}`)
+        .then(response => {
+          return response.data.results
+        })
+        .then(pokeArr => {
+          let pokeName = [];
+          let pokeID = [];
+          pokeArr.forEach((e, i) => {
+            pokeName.push(e.name);
+            let id = i + 1;
+            if (id < 10) {
+              return pokeID.push(`00${id}`)
+            }
+            if (id < 100) {
+              return pokeID.push(`0${id}`)
+            } 
+            return pokeID.push(id)
+          })
+          this.setState({
+            pokemon: pokeName,
+            id: pokeID,
+            loadMoreCount: this.state.loadMoreCount + 1,
+            });
+        })
+        .catch(e => {
+          console.log(e);
+        })
+    }
+
   render() {
     return (
       <>
         <Header /> {/* Header component -> ./components/header.js */}
-        {this.state.listView && <List pokemon={this.state} viewToggle={this.viewToggle} />} {/* List component -> ./components/list.js */}
+        {this.state.listView && 
+        <>
+          <List pokemon={this.state} viewToggle={this.viewToggle} />
+          <LoadMore loadMorePkmn={this.loadMorePkmn}/>
+        </>
+        } {/* List component -> ./components/list.js */}
         {this.state.profileView && <ProfilePage pkmnName={this.state.profileToDisplay} List={List} 
-          pokemon={this.state} viewToggle={this.viewToggle} />} {/* ProfilePage component -> ./components/profile-container.js*/}
+          pokemon={this.state} viewToggle={this.viewToggle} LoadMore={LoadMore} loadMorePkmn={this.loadMorePkmn} />} {/* ProfilePage component -> ./components/profile-container.js*/}
       </>
     );
   }
