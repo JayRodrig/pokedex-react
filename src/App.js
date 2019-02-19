@@ -37,10 +37,17 @@ class App extends Component {
           let pokeID = [];
           pokeArr.forEach((e, i) => {
             pokeName.push(e.name);
-            pokeID.push(i + 1);
+            let id = i + 1;
+            if (id < 10) {
+              return pokeID.push(`00${id}`)
+            }
+            if (id < 100) {
+              return pokeID.push(`0${id}`)
+            } 
+            return pokeID.push(id)
           })
-          console.log(pokeName)
-          console.log(pokeID)
+          // console.log(pokeName)
+          // console.log('pokeID is: ', pokeID)
           this.setState({
             pokemon: pokeName,
             id: pokeID,
