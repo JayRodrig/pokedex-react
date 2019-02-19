@@ -1,5 +1,25 @@
+.no-border {
+    border:none;
+}
+
 .loadmore-button {
-    text-align: center;
-    margin-top: 2%;
-    margin-bottom: 2%;
+    width: 100%;
+    border-radius: 10px;
+    text-align:center;
+    min-height:10%;
+    background-color: #CA1C2A;
+    border:none;
+    padding-top: 1.8%;
+}
+
+.loadmore-text {
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
+    letter-spacing: 3px;
+}
+
+.loadmore-container {
+    margin-top: 1%;
+    margin-bottom: 2.5%;
 }

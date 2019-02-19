@@ -61,7 +61,7 @@ class App extends Component {
     }
     
     loadMorePkmn = () => {
-      const pkmnToLoad = 20 * this.state.loadMoreCount + 1;
+      const pkmnToLoad = 20 * (this.state.loadMoreCount + 1);
       Axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=${pkmnToLoad}`)
         .then(response => {
           return response.data.results
