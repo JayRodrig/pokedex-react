@@ -22,3 +22,7 @@
 .loadmore-container {
     margin-bottom: 2.5%;
 }
+
+.loadmore-container:hover {
+    cursor:pointer;
+}
